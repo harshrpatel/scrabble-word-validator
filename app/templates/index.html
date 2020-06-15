@@ -1,5 +1,5 @@
 <!doctype html>
-<title>🔠 Scrabble Dictionary Checker and Scorer 🔠</title>
+<title>🔠🎲 Scrabble Dictionary Checker and Scorer 🔠🎲</title>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
@@ -8,24 +8,40 @@
 // Send the lookup request to Flask by hitting the URL <current_url>/lookup/<word>
 function look_up(event) {
 	if (event == undefined || (event && event.keyCode == 13)){
-		var word = document.getElementById("word_lookup").value;
-		  var current_url = window.location.href;
-		  window.location.replace(current_url + "lookup/" + word);
+		  var word = document.getElementById("word_lookup").value;
+		  if(word.length >1 && /^([a-zA-Z])+$/.test(word)){
+ 			var current_url = window.location.href;
+		  	window.location.replace(current_url + "lookup/" + word);
+		  } else{
+		  	window.alert("Please enter a valid word to check!");
+		  }
 	}
 }
 </script>
-<h2 style="margin-bottom: 4rem;">🔠 Scrabble Dictionary Checker and Scorer 🔠</h2>
+<h2 style="margin-bottom: 4rem;">🔠🎲 Scrabble Dictionary Checker and Scorer 🔠🎲</h2>
 <h4>Check if the word is an official scrabble word and check the points you get too.</h4>
 	<h3>Check if the word is an official scrabble word and check the points you get too.</h3>
-<div class="col-md-16">
-	<div class="form-group"> 
-		<input type="word_lookup" class="input-lg" id="word_lookup" aria-describedby="wordhelp" onkeyup="look_up(event)" autofocus>
-		<button type="button" class="btn btn-danger btn-lg" style="margin-left: 1rem; margin-top: -5px;" onclick="look_up()">Look-up</button>
+	<div class="col-md-16 content">
+		<div class="form-group"> 
+			<input type="word_lookup" class="input-lg" id="word_lookup" aria-describedby="wordhelp" onkeyup="look_up(event)" autofocus>
+			<button type="button" class="btn btn-danger btn-lg" style="margin-left: 1rem; margin-top: -5px;" onclick="look_up()">Look-up</button>
+		</div>
 	</div>
-</div>
+<footer class="footer"> Developed by: Harsh & Aayushi </footer>
 <style type="text/css">
 	body{
 		text-align: center;
 	}
+	.content {
+	  min-height: calc(83vh - 70px);
+	}
+	.footer {
+	  height: 50px;
+	  background: #d9534f;
+      color: black;
+      line-height: 50px;
+      padding: 0 20px;
+	}
 </style>
+
 </body>

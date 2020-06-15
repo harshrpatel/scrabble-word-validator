@@ -1,2 +1,2 @@
-export FLASK_APP=scrabble_validator.py
+export FLASK_APP=app/scrabble_validator.py
 flask run
