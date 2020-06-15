@@ -1,4 +1,7 @@
 from flask import Flask, render_template
+import os
+dirname = os.path.dirname(__file__)
+dict_path = os.path.join(dirname, 'scrabble_dictionary.txt')
 
 app = Flask(__name__)
 
@@ -6,7 +9,7 @@ app = Flask(__name__)
 # https://raw.githubusercontent.com/jonbcard/scrabble-bot/master/src/dictionary.txt
 dictionary_words = []
 
-with open('./scrabble_dictionary.txt') as file:
+with open(dict_path) as file:
     for line in file:
     	word = line.strip().lower() # Make all words lower case so we don't worry about case sensitivity in our searching
     	dictionary_words.append(word)
